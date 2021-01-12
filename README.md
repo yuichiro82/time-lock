@@ -1,24 +1,90 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# README
 
-Things you may want to cover:
+# テーブル設計
 
-* Ruby version
+## users テーブル
 
-* System dependencies
+| Column                  | Type    | Options     |
+| ----------------------- | ------- | ----------- |
+| name                    | string  | null: false |
+| email                   | string  | null: false |
+| encrypted_password      | string  | null: false |
 
-* Configuration
+### Association
 
-* Database creation
+- has_many :texts
+- has_many :charts
+- has_many :events
+- has_one :profile
 
-* Database initialization
+## profiles テーブル
 
-* How to run the test suite
+| Column         | Type        | Options                        |
+| -------------- | ----------- | ------------------------------ |
+| setting        | string      | null: false                    |
+| user           | references  | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- belongs_to :user
 
-* ...
+## texts テーブル
+
+| Column                | Type       | Options                        |
+| ----------------------| ---------- | -------------------------------|
+| title                 | string     | null: false                    |
+| text                  | text       | null: false                    |
+| user                  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_many :text_tag_relations
+- has_many :tags, through: :text_tag_relations
+
+## tags テーブル
+
+| Column                | Type       | Options                        |
+| ----------------------| ---------- | -------------------------------|
+| name                  | string     | null: false                    |
+
+- has_many :text_tag_relations
+- has_many :texts, through: :text_tag_relations
+
+## text_tag_relations テーブル
+| text                  | references | null: false, foreign_key: true |
+| tag                   | references | null: false, foreign_key: true |
+
+- belongs_to :text
+- belongs_to :tag
+
+## charts テーブル
+
+| Column              | Type       | Options                        |
+| --------------------| ---------- | -------------------------------|
+| title               | string     | null: false                    |
+| practice            | integer    | null: false                    |
+| act                 | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to  :user
+
+## events テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| title       | string     | null: false                    |
+| body        | text       | null: false                    |
+| start       | datetime   | null: false                    |
+| end         | datetime   | null: false                    |
+| allday      | boolean    | null: false                    |
+| user        | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :user
