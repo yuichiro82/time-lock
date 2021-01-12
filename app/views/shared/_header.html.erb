@@ -1,0 +1,50 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <div id=logo>
+    <%= link_to image_tag("time-lock2.png", size:'140x80', class:"timer-icon"), "/" %>
+  </div>
+  <div class='search-bar-contents'>
+    <form class="search-form" action="#">
+      <%# <input class='input-box' placeholder='キーワードから探す'> %>
+      <%# <button class="search-button"> %>
+        <%# <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>
+
+  <div id="app">
+  <!--ハンバーガーメニューのボタン-->
+    <div class="hamburger_btn" v-on:click='ActiveBtn=!ActiveBtn'>
+      <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
+      <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
+      <span class="line line_03" v-bind:class="{'btn_line03':ActiveBtn}"></span>
+    </div>
+
+    <transition name="menu">
+        <div class="menu" v-show="ActiveBtn">
+            <ul>
+              <% if user_signed_in? %>
+                <li><%= link_to current_user.name, edit_user_registration_path, class: "user-nickname" %></li>
+                <li><%= link_to 'todo', "/", class: "todo-list" %></li>
+                <li><%= link_to 'calender', "/", class: "brand-list" %></li>
+                <li><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+              <% else %>
+                <li><span class="material-icons md-24">login<%= link_to 'ログイン', new_user_session_path, class: "login" %></span></li>
+                <li><span class="material-icons md-24">face<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></span></li> 
+              <% end %>  
+            </ul>
+        </div>
+    </transition>
+  </div>
+
+  
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        ActiveBtn: false
+      }
+    })
+  </script>
+  
+</header>
