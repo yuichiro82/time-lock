@@ -1,60 +1,73 @@
 <%= render "shared/header" %>
     <%# 画面上部の「timelockの説明」部分 %>
+
   <div class='title-contents'>
-    <h2 class='service-title link-primary'>
-      Timelockは時間管理できるアプリです
-    </h2>
-    <p class='service-explain text-primary'>
-      ・todo機能 ・calender機能  ・chart機能があります
-    </p>
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+      <p>記録するからはじめよう</p>
+      <%= link_to 'demo', new_chart_path, class: "subtitle" %>
+    </div>
+    <div class="deno">
+      <% %>
+    </div>
   </div>
   
-
-  <div class ="timer-container">
-    <div id="timer"><p>25:00</p></div>
-    <div class="control"> 
-      <div class="btn" id="min">min</div>
-      <div class="btn" id="sec">sec</div>
-      <div class="btn" id="start">start</div>
-      <div class="btn" id="reset">reset</div>
+  <main>
+    <div class="hidden_box">
+      <input type="checkbox" id="label1">
+      <label for="label1">timer</label>
+      <div class="hidden_show">
+        <!--非表示ここから-->     
+        <div class ="timer-container">
+        <div id="timer">25:00</div>
+        <div class="control"> 
+          <div class="btn"  id="min">min</div>
+          <div class="btn"  id="sec">sec</div>
+          <div class="btn"  id="start">start</div>
+          <div class="btn"  id="reset">reset</div>
+        </div>  
+        <div class="pomodoro" id="pomodoro">repeat:</div>
+      </div>
+      </div>
     </div>
-    <div class="pomodoro" id="pomodoro">repeat:0</div>
-    <div class="purchase-btn">
-      
-      <span class="material-icons">add_to_home_screen</span>
-      <%= link_to "record", "#", class: "purchase-btn-icon" %>
-    </div>
-  </div>
-     
-  <div class="index">
-    <h3>Topics</h3>
-    <ul class="clearfix">
-      <li>
-        <a href="#">
-          <%= link_to image_tag("image3.jpg", class:"google-btn"), "#" %>
-          <p class="topics-title">DEMO</p>
-          <p class="topics-date">2021.01.12</p>
-          <p class="tag-news">DEMO</p>
-        </a>
-      </li>
+    
+    <% if user_signed_in? %>
+      <div class="toggle-wrap">
+        <input type="checkbox" id="toggle-checkbox">
+        <label class="toggle-button" for="toggle-checkbox">記録</label>
+        <div class="toggle-content">
+            <%= form_with(model: @chart, local: true) do |f| %>
+              <%= render 'shared/error_messages', model: f.object %>
+              <div class="text-content">
+                <ul>
+                  <li>
+                    <%= f.label :task_id, 'task名', class: 'control-label' %>
+                    <%= f.text_area :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 6 %>
+                  </li>
+                  <li>
+                    <%= f.label :act_time, '学習時間', class: 'control-label' %>
+                    <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
+                  </li>
+                </ul>   
+              </div>
+              <div class="date-content"> 
+                <ul>
+                  <li>
+                    <%= f.label :created_at, '登録日', class: 'control-label' %>
+                    <%= f.date_field :created_at, class: 'form-control' %>
+                  </li>
+                  <li>
+                    <%= f.label :created_at, '登録時間', class: 'control-label' %>
+                  <%= f.time_field :created_at, class: 'form-control' %>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-contents">
+                <%= f.submit "push" ,class:"btn-sf-like" %>
+              </div>
+            <% end %>
+          </div>
+      </div><!-- /.toggle-wrap -->
+    <% end %>
+  </main>
 
-      <li>
-        <a href="#">
-          <%= link_to image_tag("image1.jpg", class:"google-btn"), "#" %>
-          <p class="topics-title">DEMO</p>
-          <p class="topics-date">2021.01.02</p>
-          <p class="tag-news">DEMO</p>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <%= link_to image_tag("image2.jpg", class:"google-btn"), "#" %>
-          <p class="topics-title">DEMO</p>
-          <p class="topics-date">2020.12.24</p>
-          <p class="tag-news">App詳細</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-<%= render "shared/footer" %>
+  <%= render "shared/footer" %>

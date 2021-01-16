@@ -8,14 +8,6 @@ form input {
   font-family: "游ゴシック", "YuGothic";
 }
 
-form input[type="submit"] {
-  background-color: #57C3E9;
-  border-radius: 20px;
-  color: #fff;
-  border: 0;
-  font-size: 18px;
-  width: 15%;
-}
 
 form input[type="submit"]:hover {
   background-color: #84d3ef;
@@ -42,10 +34,6 @@ form input[type="submit"]:hover {
   width: 100vw;
   margin: auto;
   text-align: center;
-}
-
-.login-content > a{
-  
 }
 
 h2{

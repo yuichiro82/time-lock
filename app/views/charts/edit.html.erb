@@ -1,0 +1,34 @@
+<%= render "shared/header" %>
+
+  <div class="toggle-content">
+  <%= form_with(model:@chart, local: true) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="text-content">
+      <ul>
+        <li>
+          <%= f.label :task_id, 'task名', class: 'control-label' %>
+          <%= f.text_area :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 6 %>
+        </li>
+        <li>
+          <%= f.label :act_time, '学習時間', class: 'control-label' %>
+          <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
+        </li>
+      </ul>   
+    </div>
+    <div class="date-content"> 
+      <ul>
+        <li>
+          <%= f.label :created_at, '登録日', class: 'control-label' %>
+          <%= f.date_field :created_at, class: 'form-control' %>
+        </li>
+        <li>
+          <%= f.label :created_at, '登録時間', class: 'control-label' %>
+        <%= f.time_field :created_at, class: 'form-control' %>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-contents">
+      <%= f.submit "push" ,class:"btn-sf-like" %>
+    </div>
+  <% end %>
+</div>

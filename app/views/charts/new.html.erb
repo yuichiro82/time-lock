@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+  <div class='title-contents'>
+    <p>このアプリではtimerの他、3つの機能が使えます。１点目は、Todo機能、２点目は、chart機能、3点目はcalender機能です。</p>
+    <p>このdemoではchart機能の一例を表示しています。</p>
+  </div>
+  <p class="notice">testさんの学習状況</p>
+  <div class="main">
+    <div class="tab-wrap">
+      <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+      <label class="tab-label" for="TAB-01">day</label>
+      <div class="tab-content">
+         <h2><%= link_to image_tag("demo2.png",size: '400x220', class:"google-btn"), "#" %></h2>
+         
+      </div>
+      <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-02">week</label>
+      <div class="tab-content">
+          <%= link_to image_tag("demo3.png",size: '400x220', class:"google-btn"), "#" %>
+      </div>
+      <input id="TAB-03" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-03">month</label>
+      <div class="tab-content">
+          <%= link_to image_tag("demo3.png",size: '400x220', class:"google-btn"), "#" %>
+      </div>
+      <input id="TAB-04" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-04">task別</label>
+      <div class="tab-content">
+          <%= link_to image_tag("demo4.png",size: '500x220', class:"google-btn"), "#" %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="container">
+      <%= link_to image_tag("demo5.png",size: '900x220', class:"google-btn"), "#" %>
+  </div>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+<%= render "shared/footer" %>
