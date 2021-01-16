@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 class ChartsController < ApplicationController
-  before_action :set_chart, only: [:show,:edit, :update, :destroy]
+  before_action :set_chart, only: %i[show edit update destroy]
 
   def index
     @user = User.all
     @chart = Chart.new
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @chart = Chart.new(chart_params)
@@ -21,12 +20,10 @@ class ChartsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @chart = Chart.find(params[:id])
-
   end
 
   def update
@@ -44,7 +41,7 @@ class ChartsController < ApplicationController
   private
 
   def set_chart
-    @chart = Chart.where(user_id: current_user.id) 
+    @chart = Chart.where(user_id: current_user.id)
   end
 
   def chart_params

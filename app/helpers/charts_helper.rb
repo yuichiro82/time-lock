@@ -14,9 +14,9 @@ module ChartsHelper
       }
     }
     column_chart data,
-               xtitle: 'Date', ytitle: 'act_time',
-               min: 0,
-               discrete: true,
-               library: library_options
+                 xtitle: 'Date', ytitle: 'act_time',
+                 min: 0,
+                 discrete: true,
+                 library: library_options
   end
 end
