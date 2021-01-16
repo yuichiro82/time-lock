@@ -31,7 +31,7 @@
     <table border="1">
       <thead>
         <tr>
-          <th colspan="4">chart</th>
+          <th colspan="5">chart</th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +39,7 @@
           <td>task_id</td>
           <td>act_time</td>
           <td>created_at</td>
+          <td>edit</td>
           <td>delete</td>
         </tr>
       </tbody> 
@@ -48,6 +49,7 @@
             <td><%= chart.task_id %></td> 
             <td><%= chart.act_time %></td> 
             <td><%= chart.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= link_to 'edit', edit_chart_path(:user_id), class: "todo-list" %></td>
             <td><%= link_to 'Delete', chart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         </tfoot>
@@ -55,5 +57,3 @@
     </table>
   </div>
   <%=link_to 'もどる', root_path, class:"back-btn" %>
-
-  

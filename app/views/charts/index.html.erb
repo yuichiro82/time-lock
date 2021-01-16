@@ -4,6 +4,10 @@
   <div class='title-contents'>
     <div class="shadow-sm p-3 mb-5 bg-white rounded">
       <p>記録するからはじめよう</p>
+      <%= link_to 'demo', new_chart_path, class: "subtitle" %>
+    </div>
+    <div class="deno">
+      <% %>
     </div>
   </div>
   
@@ -18,7 +22,7 @@
         <div class="control"> 
           <div class="btn"  id="min">min</div>
           <div class="btn"  id="sec">sec</div>
-          <div class="btn"  id="start"><span class="material-icons">play_circle_filled</span></div>
+          <div class="btn"  id="start">start</div>
           <div class="btn"  id="reset">reset</div>
         </div>  
         <div class="pomodoro" id="pomodoro">repeat:</div>
@@ -26,49 +30,44 @@
       </div>
     </div>
     
-    <div class="toggle-wrap">
-      <input type="checkbox" id="toggle-checkbox">
-      <label class="toggle-button" for="toggle-checkbox">記録</label>
-      <div class="toggle-content">
-          <%= form_with(model: @chart, local: true) do |f| %>
-            <%= render 'shared/error_messages', model: f.object %>
-            <div class="text-content">
-              <%= f.text_area :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 10 %>
-              <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
-            </div>
-            <div class="date-content"> 
-              <ul>
-                <li>
-                  <%= f.label :created_at, '登録日', class: 'control-label' %>
-                <%= f.date_field :created_at, class: 'form-control' %>
-                </li>
-                <li>
-                  <%= f.label :created_at, '登録時間', class: 'control-label' %>
-                <%= f.time_field :created_at, class: 'form-control' %>
-                </li>
-              </ul>
-            </div>
-            <div class="btn-contents">
-              <%= f.submit "push" %>
-            </div>
-          <% end %>
-      </div>
-    </div><!-- /.toggle-wrap -->
+    <% if user_signed_in? %>
+      <div class="toggle-wrap">
+        <input type="checkbox" id="toggle-checkbox">
+        <label class="toggle-button" for="toggle-checkbox">記録</label>
+        <div class="toggle-content">
+            <%= form_with(model: @chart, local: true) do |f| %>
+              <%= render 'shared/error_messages', model: f.object %>
+              <div class="text-content">
+                <ul>
+                  <li>
+                    <%= f.label :task_id, 'task名', class: 'control-label' %>
+                    <%= f.text_area :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 6 %>
+                  </li>
+                  <li>
+                    <%= f.label :act_time, '学習時間', class: 'control-label' %>
+                    <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
+                  </li>
+                </ul>   
+              </div>
+              <div class="date-content"> 
+                <ul>
+                  <li>
+                    <%= f.label :created_at, '登録日', class: 'control-label' %>
+                    <%= f.date_field :created_at, class: 'form-control' %>
+                  </li>
+                  <li>
+                    <%= f.label :created_at, '登録時間', class: 'control-label' %>
+                  <%= f.time_field :created_at, class: 'form-control' %>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-contents">
+                <%= f.submit "push" ,class:"btn-sf-like" %>
+              </div>
+            <% end %>
+          </div>
+      </div><!-- /.toggle-wrap -->
+    <% end %>
   </main>
 
-  
-  <%# <div class="index"> %>
-    <%# <h3>Topics</h3> %>
-    <%# <ul class="bg-info clearfix"> %>
-      <%# <li> %>
-          <%# <%= link_to image_tag("image3.jpg", class:"rounded"), "#" %>
-          <%# <span class="border"> %>
-            <%# <p class="topics-title">Chart機能</p> %>
-            <%# <p class="topics-date">2021.01.12</p> %>
-            <%# <p class="tag-news">New!</p> %>
-          <%# </span> %>
-        <%# </a> %>
-      <%# </li> %>
-    <%# </ul> %>
-  <%# </div> %>
   <%= render "shared/footer" %>

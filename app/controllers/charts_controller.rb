@@ -8,6 +8,9 @@ class ChartsController < ApplicationController
     @chart = Chart.new
   end
 
+  def new
+  end
+
   def create
     @chart = Chart.new(chart_params)
     if @chart.valid?
@@ -19,7 +22,6 @@ class ChartsController < ApplicationController
   end
 
   def show
-    @chart = Chart.where(user_id: current_user.id)
   end
 
   def edit
