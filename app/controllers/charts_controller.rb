@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ChartsController < ApplicationController
-  before_action :set_chart, only: [:edit, :update, :destroy]
+  before_action :set_chart, only: [:show,:edit, :update, :destroy]
 
   def index
     @user = User.all
@@ -25,19 +25,26 @@ class ChartsController < ApplicationController
   end
 
   def edit
-    @chart = Chart.where(user_id: current_user.id) 
+    @chart = Chart.find(params[:id])
+
   end
 
   def update
+    @chart = Chart.find(params[:id])
+    @chart.update(chart_params)
+    redirect_to root_path
   end
 
   def destroy
+    @chart = Chart.find(params[:id])
+    @chart.destroy
+    redirect_to root_path
   end
 
   private
 
   def set_chart
-    @chart = Chart.where(id: params[:user_id])
+    @chart = Chart.where(user_id: current_user.id) 
   end
 
   def chart_params

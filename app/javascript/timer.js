@@ -15,7 +15,6 @@
     var timeToCountDown = 25 * 60 * 1000; 
     var timerId;
     var num = 0;
-    var music = new Audio("Phrase03-1.mp3");
     var isRunning = false;
 
     function updateTimer(t){
@@ -38,8 +37,6 @@
           timeToCountDown = 0;
           num += 1;
           pomodoro.textContent = "repeat:" + num;
-          music.currentTime = 0;
-          music.play();
           updateTimer(timerId);
           return //次のcountDownを呼びたくない
         };
