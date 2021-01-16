@@ -1,0 +1,59 @@
+<%= render "shared/header" %>
+
+  <p class="notice"><%= current_user.name %>さんの学習状況</p>
+  <div class="main">
+    <div class="tab-wrap">
+      <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+      <label class="tab-label" for="TAB-01">day</label>
+      <div class="tab-content">
+         <h2><%= area_chart @chart.group_by_day(:created_at).sum(:act_time), width: "400px", height: "200px" %></h2>
+         
+      </div>
+      <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-02">week</label>
+      <div class="tab-content">
+          <%= area_chart @chart.group_by_week(:created_at).sum(:act_time), width: "400px", height: "200px" %>
+      </div>
+      <input id="TAB-03" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-03">month</label>
+      <div class="tab-content">
+          <%= area_chart @chart.group_by_month(:created_at).sum(:act_time), width: "400px", height: "200px" %>
+      </div>
+      <input id="TAB-04" type="radio" name="TAB" class="tab-switch" />
+      <label class="tab-label" for="TAB-04">task別</label>
+      <div class="tab-content">
+          <%= pie_chart @chart.group(:task_id).count %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="container">
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="5">chart</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>task_id</td>
+          <td>act_time</td>
+          <td>created_at</td>
+          <td>edit</td>
+          <td>delete</td>
+        </tr>
+      </tbody> 
+      <% @chart.each do |chart| %>
+        <tfoot>
+          <tr>
+            <td><%= chart.task_id %></td> 
+            <td><%= chart.act_time %></td> 
+            <td><%= chart.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= link_to 'edit', edit_chart_path(:user_id), class: "todo-list" %></td>
+            <td><%= link_to 'Delete', chart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tfoot>
+      <% end %>
+    </table>
+  </div>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
