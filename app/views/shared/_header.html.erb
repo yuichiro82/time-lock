@@ -22,7 +22,7 @@
                 <li><%= link_to current_user.name, edit_user_registration_path, class: "user-nickname" %></li>
                 <li><%= link_to 'todo', "/", class: "todo-list" %></li>
                 <li><%= link_to 'chart',chart_path(:user_id), class: "todo-list" %></li>
-                <li><%= link_to 'calender', "/", class: "brand-list" %></li>
+                <li><%= link_to 'calender', event_path(:user_id), class: "brand-list" %></li>
                 <li><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
                 <a href="https://twitter.com/home" class="btn-social-icon-twitter"><span class="btn-social-icon-twitter__square"><i class="fa fa-twitter"></i></span></a>
               <% else %>

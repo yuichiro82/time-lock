@@ -1,3 +1,11 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+td.fc-sun {
+  background-color: #f56e6e;
+}
+
+/* 土曜日 */
+td.fc-sat {
+  background-color: #a6cef8;
+}

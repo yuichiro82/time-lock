@@ -12,6 +12,9 @@ require("chartkick")
 require("chart.js")
 require("../calender")
 require("../main")
+require("../main.min")
+require("../load")
+require("../ja")
 
 
 //= require audiojs
