@@ -30,17 +30,7 @@ form input[type="submit"]:hover {
   color: #666;
 }
 
-.login-content{
-  width: 100vw;
-  margin: auto;
-  text-align: center;
-}
-
-h2{
-  font-weight: bold;
-  margin: 10px;
-}
-
-h3{
-  margin: 10px;
+.material-icons.md-24 { 
+  font-size: 36px; 
+  color: rgb(20, 19, 19);
 }
