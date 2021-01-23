@@ -1,40 +1,6 @@
 <%= render "shared/header" %>
 <h3 class="text-center">カレンダー</h3>
 
-<div class="container">
-    <table border="1">
-      <thead>
-        <tr>
-          <th colspan="6">event</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>title</td>
-          <td>text</td>
-          <td>start_time</td>
-          <td>end_time</td>
-          <td>edit</td>
-          <td>delete</td>
-        </tr>
-      </tbody> 
-      <% @event.each do |event| %>
-        <tfoot>
-          <tr>
-            <td><%= event.title %></td> 
-            <td><%= event.text %></td> 
-            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-            <td><%= event.end_time.strftime("%Y-%m-%d %H:%M") %></td>
-            <td><%= link_to 'edit', edit_event_path(event.id), class: "todo-list" %></td>
-            <td><%= link_to 'Delete', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        </tfoot>
-      <% end %>
-    </table>
-  </div>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
-  <%= render "shared/footer" %>
-
 <!-- カレンダーの表示 -->
 <div class="container">
   <div id="calendar"></div>
@@ -69,3 +35,35 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="6">event</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td>text</td>
+          <td>start_time</td>
+          <td>end_time</td>
+          <td>edit</td>
+          <td>delete</td>
+        </tr>
+      </tbody> 
+      <% @event.each do |event| %>
+        <tfoot>
+          <tr>
+            <td><%= event.title %></td> 
+            <td><%= event.text %></td> 
+            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= event.end_time.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= link_to 'edit', edit_event_path(event.id), class: "todo-list" %></td>
+            <td><%= link_to 'Delete', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tfoot>
+      <% end %>
+    </table>
+  </div>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>

@@ -13,9 +13,6 @@ require("chart.js")
 require("../calender")
 require("../main")
 require("../main.min")
-require("../load")
-require("../ja")
-
 
 //= require audiojs
 // Uncomment to copy all static images under ../images to the output folder and reference
