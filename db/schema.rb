@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_112_113_253) do
+ActiveRecord::Schema.define(version: 20_210_117_011_805) do
   create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 20_210_112_113_253) do
     t.index ['user_id'], name: 'index_charts_on_user_id'
   end
 
+  create_table 'events', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'title', default: '', null: false
+    t.text 'text'
+    t.datetime 'start_time', null: false
+    t.datetime 'end_time', null: false
+    t.boolean 'allDay'
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_events_on_user_id'
+  end
+
   create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', default: '', null: false
     t.string 'email', default: '', null: false
@@ -57,4 +69,5 @@ ActiveRecord::Schema.define(version: 20_210_112_113_253) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'charts', 'users'
+  add_foreign_key 'events', 'users'
 end

@@ -1,0 +1,69 @@
+<%= render "shared/header" %>
+<h3 class="text-center">カレンダー</h3>
+
+<!-- カレンダーの表示 -->
+<div class="container">
+  <div id="calendar"></div>
+    <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-nm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">スケジュール登録</h4>
+                </div>
+                <div class="modal-body">
+                    <%= form_with model: @event, url: events_path do |f| %>
+                        <div  class="col">
+                                <p>
+                                    <span>タイトル</span>
+                                    <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
+                                </p>
+                                <span>開始日時</span>
+                                <span><%= f.datetime_field  :start_time, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
+                                <span>終了日時</span>
+                                <span><%= f.datetime_field :end_time, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
+                                <span>詳細
+                                <%= f.text_field :text, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
+                        </div>
+                        <div class="modal-footer">
+                            <%= f.submit "登録する", class: "btn btn-primary" %>
+                            <%= f.hidden_field :user_id, :value => current_user.id %>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="6">event</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td>text</td>
+          <td>start_time</td>
+          <td>end_time</td>
+          <td>edit</td>
+          <td>delete</td>
+        </tr>
+      </tbody> 
+      <% @event.each do |event| %>
+        <tfoot>
+          <tr>
+            <td><%= event.title %></td> 
+            <td><%= event.text %></td> 
+            <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= event.end_time.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= link_to 'edit', edit_event_path(event.id), class: "todo-list" %></td>
+            <td><%= link_to 'Delete', event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tfoot>
+      <% end %>
+    </table>
+  </div>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>

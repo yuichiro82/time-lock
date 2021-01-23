@@ -62,5 +62,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'audiojs-rails'
 gem 'chartkick'
 gem 'devise'
+gem 'fullcalendar-rails'
 gem 'groupdate'
+gem 'jquery-rails'
+gem 'momentjs-rails'
 gem 'pry-rails'

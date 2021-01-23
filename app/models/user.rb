@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :charts
+  has_many :events
 
   validates_format_of :password, with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/
   with_options presence: true do
