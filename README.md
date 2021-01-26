@@ -9,7 +9,7 @@
 
 ## DEMO 
 
-![Timer3](https://user-images.githubusercontent.com/70064197/105829724-1566de00-6008-11eb-8d21-863e45e92b4b.mp4
+![Timer3](https://user-images.githubusercontent.com/70064197/105831631-4d6f2080-600a-11eb-9f02-ee419f8dbbd2.jpg
 )
 
 ![Timer4](https://user-images.githubusercontent.com/70064197/105822901-e3ea1480-5fff-11eb-9d18-37a370085ec9.jpg)
@@ -25,7 +25,7 @@
 
 ## Author
 - Github
-- twitter[yvichrou211](https://twitter.com/yvichrou211)
+- twitter:[yvichrou211](https://twitter.com/yvichrou211)
 
 ## License
 [MIT](https://yuichiro82.mit-license.org/)
