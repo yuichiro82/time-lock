@@ -1,14 +1,14 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
 
-  <nav aria-label="breadcrumb">
-   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to image_tag("time-lock2.png", size:'130x70', class:"timer-icon"), "/" %></li>
+  <nav aria-label="brand">
+   <ol class="brand">
+    <li class="bread-icon"><%= link_to image_tag("time-lock3.png", width: '14%',height: '14%', class:"timer-icon"), "/" %></li>
    </ol>
   </nav>
 
   <div id="app">
-  <!--ハンバーガーメニューのボタン-->
+    <!--ハンバーガーメニューのボタン-->
     <div class="hamburger_btn" v-on:click='ActiveBtn=!ActiveBtn'>
       <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
       <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
@@ -19,11 +19,11 @@
         <div class="menu" v-show="ActiveBtn">
             <ul>
               <% if user_signed_in? %>
-                <li><%= link_to current_user.name, edit_user_registration_path, class: "user-nickname" %></li>
-                <li><%= link_to 'todo', "/", class: "todo-list" %></li>
-                <li><%= link_to 'chart',chart_path(:user_id), class: "todo-list" %></li>
-                <li><%= link_to 'calender', event_path(:user_id), class: "brand-list" %></li>
-                <li><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+                <li><span class="material-icons md-18">account_box</span><%= link_to current_user.name, edit_user_registration_path, class: "header-list" %></li>
+                <li><span class="material-icons md-18">list_alt</span><%= link_to 'todo', "/", class: "todo-list" %></li>
+                <li><span class="material-icons md-18">insert_chart_outlined</span><%= link_to 'chart',chart_path(:user_id), class: "header-list" %></li>
+                <li><span class="material-icons md-18">event</span><%= link_to 'calender', event_path(:user_id), class: "header-list" %></li>
+                <li><span class="material-icons md-18">exit_to_app</span><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "" %></li>
                 <a href="https://twitter.com/home" class="btn-social-icon-twitter"><span class="btn-social-icon-twitter__square"><i class="fa fa-twitter"></i></span></a>
               <% else %>
                 <li><span class="material-icons md-24">login<%= link_to 'ログイン', new_user_session_path, class: "login" %></span></li>
