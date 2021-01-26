@@ -2,13 +2,22 @@
 
 
 <h2 align="center">Time lock</h2>
-***DEMO:***
-
-![Timer2](https://user-images.githubusercontent.com/70064197/105822901-e3ea1480-5fff-11eb-9d18-37a370085ec9.jpg)
 
 ## App URL
 
 ### **Web URL: https://time-lock.herokuapp.com/**  
+
+## DEMO 
+
+![Timer3](https://user-images.githubusercontent.com/70064197/105829724-1566de00-6008-11eb-8d21-863e45e92b4b.mp4
+)
+
+![Timer4](https://user-images.githubusercontent.com/70064197/105822901-e3ea1480-5fff-11eb-9d18-37a370085ec9.jpg)
+
+![Timer5](https://user-images.githubusercontent.com/70064197/105831109-aab6a200-6009-11eb-8a46-3ac5e2c249ab.png)
+
+# Description
+- This app is a Pomodoro timer application.There are three functions you can do with this app. It is a timer function, a chart function, and a calender function.
 
 ## Requirement
 - rails
@@ -16,7 +25,7 @@
 
 ## Author
 - Github
-[yvichrou211](https://twitter.com/yvichrou211)
+- twitter[yvichrou211](https://twitter.com/yvichrou211)
 
 ## License
 [MIT](https://yuichiro82.mit-license.org/)

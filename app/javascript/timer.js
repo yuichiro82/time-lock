@@ -28,7 +28,7 @@
 
     function countDown(){
       timerId = setTimeout(function() {
-        timeLeft = timeToCountDown - (Date.now() -startTime);
+        timeLeft = timeToCountDown - (Date.now() - startTime);
         if (timeLeft < 0) {
           isRunning = false;
           start.textContent = 'Start';
