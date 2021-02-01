@@ -67,3 +67,4 @@ gem 'groupdate'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'pry-rails'
+gem "aws-sdk-s3", require: false

@@ -4,5 +4,6 @@ FactoryBot.define do
     start_time { Time.now }
     end_time { Time.now }
     user_id  { 1 }
+    association :user 
   end
 end
