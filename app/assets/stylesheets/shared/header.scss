@@ -33,7 +33,6 @@
   transition: 0.4s ease;
 }
 
-
 .btn_line01 {
   transform: translateY(10px) rotate(-45deg);
   transition: 0.4s ease;
@@ -47,22 +46,18 @@
   transition: 0.4s ease;
 }
 
-/*サイドバー*/
-.menu-enter-active, .menu-leave-active {
-  transition: opacity 0.4s;
-}
-.menu-enter, .menu-leave-to {
-  opacity: 0;
-}
-.menu-leave, .menu-enter-to{
-  opacity: 1;
-}
-
 .menu li {
   list-style: none;
   line-height: 1rem;
   padding: 1rem;
 }
+
+.menu li:hover{
+  background: #fbfbfb;
+  padding: 15px;
+  border-radius: 5px;
+}
+
 .menu {
   background-color: rgba(197, 197, 197, 0.671);
   z-index: 30;
@@ -73,6 +68,7 @@
   top: 0;
   right: 0;
 }
+
 .menu a {
   color: rgb(66, 66, 66);
   text-decoration: none;
@@ -135,4 +131,9 @@
 
 ul{
   list-style: none;
+}
+
+.material-icons{
+  font-size: 30px;
+  color: black;
 }

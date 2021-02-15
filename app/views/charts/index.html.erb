@@ -6,14 +6,11 @@
       <p>記録するからはじめよう</p>
       <%= link_to 'demo', new_chart_path, class: "subtitle" %>
     </div>
-    <div class="deno">
-      
-    </div>
   </div>
   
   <main>
     <div class="hidden_box">
-      <input type="checkbox" id="label1">
+      <input type="checkbox" id="label1" checked>
       <label for="label1">timer</label>
       <div class="hidden_show">
         <!--非表示ここから-->     
@@ -32,7 +29,7 @@
     
     <% if user_signed_in? %>
       <div class="toggle-wrap">
-        <input type="checkbox" id="toggle-checkbox">
+        <input type="checkbox" id="toggle-checkbox" checked>
         <label class="toggle-button" for="toggle-checkbox">記録</label>
         <div class="toggle-content">
             <%= form_with(model: @chart, local: true) do |f| %>

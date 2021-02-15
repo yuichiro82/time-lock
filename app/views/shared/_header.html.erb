@@ -19,15 +19,15 @@
         <div class="menu" v-show="ActiveBtn">
             <ul>
               <% if user_signed_in? %>
-                <li><span class="material-icons md-18">account_box</span><%= link_to current_user.name, "#", class: "header-list" %></li>
-                <li><span class="material-icons md-18">list_alt</span><%= link_to 'todo', "/", class: "todo-list" %></li>
-                <li><span class="material-icons md-18">insert_chart_outlined</span><%= link_to 'chart',chart_path(:user_id), class: "header-list" %></li>
-                <li><span class="material-icons md-18">event</span><%= link_to 'calender', event_path(:user_id), class: "header-list" %></li>
-                <li><span class="material-icons md-18">exit_to_app</span><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "" %></li>
+                <li><span class="material-icons">account_box</span><%= link_to current_user.name, "#", class: "header-list" %></li>
+                <li><span class="material-icons">list_alt</span><%= link_to 'todo', "/", class: "todo-list" %></li>
+                <li><span class="material-icons">insert_chart_outlined</span><%= link_to 'chart',chart_path(:user_id), class: "header-list" %></li>
+                <li><span class="material-icons">event</span><%= link_to 'calender', event_path(:user_id), class: "header-list" %></li>
+                <li><span class="material-icons">exit_to_app</span><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "" %></li>
                 <a href="https://twitter.com/home" class="btn-social-icon-twitter"><span class="btn-social-icon-twitter__square"><i class="fa fa-twitter"></i></span></a>
               <% else %>
-                <li><span class="material-icons md-24">login<%= link_to 'ログイン', new_user_session_path, class: "login" %></span></li>
-                <li><span class="material-icons md-24">face<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></span></li> 
+                <li><span class="material-icons">login<%= link_to 'ログイン', new_user_session_path, class: "login" %></span></li>
+                <li><span class="material-icons">face<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></span></li> 
               <% end %> 
             </ul>
         </div>
