@@ -3,11 +3,44 @@
 
   <div class='title-contents'>
     <div class="shadow-sm p-3 mb-5 bg-white rounded">
-      <p>記録するからはじめよう</p>
-      <%= link_to 'demo', new_chart_path, class: "subtitle" %>
+      <p>ポモドーロタイマーアプリ「Time lock」</p>
+      <p>このアプリではtimerの他、3つの機能が使えます。Todo機能、chart機能、calender機能です。</p>
+      <p>chart機能の一例はdemo画面でご覧頂けます</p>
+      <p>chart機能で結果をサポート</p>
+      <p>勉強・読書・筋トレなど使い方は人それぞれ</p>
     </div>
   </div>
-  
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="item">
+            <h2><%= link_to image_tag("s1.png",size: '400x220', class:"google-btn"), "#" %></h2>
+        </div>
+      </div>
+      <div class="swiper-slide">
+          <div class="item">
+              <h2><%= link_to image_tag("s2.png",size: '400x220', class:"google-btn"), "#" %></h2>
+          </div>
+      </div>
+      <div class="swiper-slide">
+          <div class="item">
+              <h2><%= link_to image_tag("s3.png",size: '400x220', class:"google-btn"), "#" %></h2>
+          </div>
+      </div>
+      <div class="swiper-slide">
+          <div class="item">
+            <h2><%= link_to image_tag("s4.png",size: '400x220', class:"google-btn"), "#" %></h2>
+          </div>
+      </div>
+      <div class="swiper-slide">
+          <div class="item">
+              <h2><%= link_to image_tag("s5.png",size: '400x220', class:"google-btn"), "#" %></h2>
+          </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>   
   <main>
     <div class="hidden_box">
       <input type="checkbox" id="label1" checked>
@@ -67,4 +100,4 @@
     <% end %>
   </main>
 
-  <%= render "shared/footer" %>
+<%= render "shared/footer" %>
