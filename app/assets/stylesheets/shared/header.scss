@@ -3,17 +3,18 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .brand ul{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin: 0 auto;
 }
 
 .brand li{
-  margin: 1rem;
+  max-width: 0 auto;
 }
 
 .brand li:first-of-type{
