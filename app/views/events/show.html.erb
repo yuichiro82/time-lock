@@ -1,41 +1,34 @@
 <%= render "shared/header" %>
-<h3 class="text-center">カレンダー</h3>
+<div class="title-contents">
+  <h3 class="notice"><%= current_user.name %>さんのカレンダー</h3>
+</div>
 
 <!-- カレンダーの表示 -->
-<div class="container">
+<div class="list-container">
   <div id="calendar"></div>
-    <div id="inputScheduleForm" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-nm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">スケジュール登録</h4>
-                </div>
-                <div class="modal-body">
-                    <%= form_with model: @event, url: events_path do |f| %>
-                        <div  class="col">
-                                <p>
-                                    <span>タイトル</span>
-                                    <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
-                                </p>
-                                <span>開始日時</span>
-                                <span><%= f.datetime_field  :start_time, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
-                                <span>終了日時</span>
-                                <span><%= f.datetime_field :end_time, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
-                                <span>詳細
-                                <%= f.text_field :text, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
-                        </div>
-                        <div class="modal-footer">
-                            <%= f.submit "登録する", class: "btn btn-primary" %>
-                            <%= f.hidden_field :user_id, :value => current_user.id %>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
+    <div class="modal-content">
+      <h4 class="title-contents">スケジュール登録</h4>
+      <div class="modal-body">
+        <%= form_with model: @event, url: events_path do |f| %>
+          <div  class="col">
+            <span>タイトル</span>
+            <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span><br>
+            <span>開始日時</span>
+            <span><%= f.datetime_field  :start_time, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
+            <span>終了日時</span>
+            <span><%= f.datetime_field :end_time, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
+            <span>詳細
+            <%= f.text_field :text, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
+          </div>
+          <div class="modal-footer">
+              <%= f.submit "登録する", class: "btn btn-primary" %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+          </div>
+        <% end %>
+      </div>
     </div>
-</div>
-<div class="container">
+
+    <div class="list">
     <table border="1">
       <thead>
         <tr>
@@ -66,4 +59,8 @@
       <% end %>
     </table>
   </div>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
+  <div class="return">
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+</div>
+  

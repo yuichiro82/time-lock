@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save!
+    redirect_to root_path
   end
 
   def show; end

@@ -1,22 +1,77 @@
 
-html, body {
+html {
   position: relative;
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color:#000;
   margin: 0;
   padding: 0;
-  background-image: image-url('bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+  overflow-x: hidden;
 }
+
+.section-one {
+  background-color: #5FC18B;
+  position: relative;
+  padding: 10vh 15vw;
+  box-shadow: 15px 15px 15px 15px rgba(41, 41, 41, 0.2);
+  box-sizing: border-box;
+  .section-one__title {
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .section-one__descr {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 50vh;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.section-two {
+  background-color: #44a36f;
+  padding: 10vh 20vw;
+  .section-two__title {
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .section-two__descr {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 50vw;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-one {
+    padding: 130px 0 190px;
+  }
+  .separator {
+    bottom: -110px;
+    .separator__svg {
+      left: -20%;
+      position: relative;
+      transform: rotate(15deg);
+      width: 140%;
+    }
+  }
+}
+
 
 .swiper-container {
   margin-top: 10px !important;
@@ -60,9 +115,6 @@ body {
 }
 
 /* 画面上部の「アプリ」帯部分 */
-.top-page-header{
-  padding: 15px 20px;
-}
 
 .title-contents {
   padding:5px;
@@ -175,6 +227,7 @@ main{
 .hidden_box {
   margin: 2em 0;
   padding: 0;
+  text-align: center;
 }
 
 /*ボタン装飾*/

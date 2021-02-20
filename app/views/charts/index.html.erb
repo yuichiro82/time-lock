@@ -1,13 +1,27 @@
 <%= render "shared/header" %>
     <%# 画面上部の「timelockの説明」部分 %>
-
-  <div class='title-contents'>
-    <div class="shadow-sm p-3 mb-5 bg-white rounded">
-      <p>ポモドーロタイマーアプリ「Time lock」</p>
-      <p>このアプリではtimerの他、3つの機能が使えます。Todo機能、chart機能、calender機能です。</p>
-      <p>chart機能の一例はdemo画面でご覧頂けます</p>
-      <p>chart機能で結果をサポート</p>
-      <p>勉強・読書・筋トレなど使い方は人それぞれ</p>
+  
+  <div class="section-one">
+    <h2 class="section-one__title">ポモドーロタイマーアプリ「Time lock」</h2>
+    <p class="section-one__descr">
+    このアプリではtimerの他、<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>するとTodo機能、chart機能、calender機能が利用頂けます。</br>
+    chart機能の一例は<%= link_to 'demo', new_chart_path, class: "subtitle" %>画面でご覧頂けます。
+    </p>
+    <div class="hidden_box">
+      <input type="checkbox" id="label1" checked>
+      <label for="label1">timer</label>
+      <div class="hidden_show">
+        <!--非表示ここから-->     
+        <div class ="timer-container">
+        <div id="timer">25:00</div>
+        <div class="control"> 
+          <div class="btn"  id="min">min</div>
+          <div class="btn"  id="sec">sec</div>
+          <div class="btn"  id="start">start</div>
+          <div class="btn"  id="reset">reset</div>
+        </div>  
+        <div class="pomodoro" id="pomodoro">repeat:0</div>
+      </div>
     </div>
   </div>
 
@@ -15,7 +29,17 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="item">
-            <h2><%= link_to image_tag("s1.png",size: '400x220', class:"google-btn"), "#" %></h2>
+            <h2><%= link_to image_tag("s6.png",size: '400x220', class:"google-btn"), "#" %></h2>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="item">
+            <h2><%= link_to image_tag("s11.png",size: '400x220', class:"google-btn"), "#" %></h2>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="item">
+            <h2><%= link_to image_tag("s10.png",size: '400x220', class:"google-btn"), "#" %></h2>
         </div>
       </div>
       <div class="swiper-slide">
@@ -41,63 +65,50 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>   
-  <main>
-    <div class="hidden_box">
-      <input type="checkbox" id="label1" checked>
-      <label for="label1">timer</label>
-      <div class="hidden_show">
-        <!--非表示ここから-->     
-        <div class ="timer-container">
-        <div id="timer">25:00</div>
-        <div class="control"> 
-          <div class="btn"  id="min">min</div>
-          <div class="btn"  id="sec">sec</div>
-          <div class="btn"  id="start">start</div>
-          <div class="btn"  id="reset">reset</div>
-        </div>  
-        <div class="pomodoro" id="pomodoro">repeat:0</div>
-      </div>
-      </div>
-    </div>
-    
-    <% if user_signed_in? %>
-      <div class="toggle-wrap">
-        <input type="checkbox" id="toggle-checkbox" checked>
-        <label class="toggle-button" for="toggle-checkbox">記録</label>
-        <div class="toggle-content">
-            <%= form_with(model: @chart, local: true) do |f| %>
-              <%= render 'shared/error_messages', model: f.object %>
-              <div class="text-content">
-                <ul>
-                  <li>
-                    <%= f.label :task_id, 'task名', class: 'control-label' %>
-                    <%= f.text_area :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 6 %>
-                  </li>
-                  <li>
-                    <%= f.label :act_time, '学習時間', class: 'control-label' %>
-                    <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
-                  </li>
-                </ul>   
-              </div>
-              <div class="date-content"> 
-                <ul>
-                  <li>
-                    <%= f.label :created_at, '登録日', class: 'control-label' %>
-                    <%= f.date_field :created_at, class: 'form-control' %>
-                  </li>
-                  <li>
-                    <%= f.label :created_at, '登録時間', class: 'control-label' %>
-                  <%= f.time_field :created_at, class: 'form-control' %>
-                  </li>
-                </ul>
-              </div>
-              <div class="btn-contents">
-                <%= f.submit "push" ,class:"btn-sf-like" %>
-              </div>
-            <% end %>
-          </div>
-      </div><!-- /.toggle-wrap -->
-    <% end %>
-  </main>
 
-<%= render "shared/footer" %>
+  </div>
+  <div class="section-two">
+    <h2 class="section-two__title">New life</h2>
+    <p class="section-two__descr">ポモドーロタイマーで新しい習慣をはじめて見ませんか.</br>
+    1日５分からでも新習慣。</br>勉強・読書・筋トレなど使い方は人それぞれ</p>
+    <div class="form-container">
+      <% if user_signed_in? %>
+        <div class="toggle-wrap">
+          <input type="checkbox" id="toggle-checkbox" checked>
+          <label class="toggle-button" for="toggle-checkbox">記録</label>
+          <div class="toggle-content">
+              <%= form_with(model: @chart, local: true) do |f| %>
+                <%= render 'shared/error_messages', model: f.object %>
+                <div class="field">
+                  <ul>
+                    <li>
+                      <%= f.label :task_id, 'task名', class: 'control-label' %>
+                      <%= f.text_field :task_id, class:"charts-task", id:"chart-task", placeholder:"task",min: 1, max: 6 %>
+                    </li>
+                    <li>
+                      <%= f.label :act_time, '学習時間', class: 'control-label' %>
+                      <%= f.number_field :act_time, class:"charts-data", id:"chart-data", placeholder:"（ex.20(min))",min: 1, maxlength:5 %>
+                    </li>
+                  </ul>   
+                </div>
+                <div class="field"> 
+                  <ul>
+                    <li>
+                      <%= f.label :created_at, '登録日', class: 'control-label' %>
+                      <%= f.date_field :created_at, class: 'form-control' %>
+                    </li>
+                    <li>
+                      <%= f.label :created_at, '登録時間', class: 'control-label' %>
+                    <%= f.time_field :created_at, class: 'form-control' %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="field">
+                  <%= f.submit "rec" ,class:"btn-sf-like" %>
+                </div>
+              <% end %>
+            </div>
+        </div><!-- /.toggle-wrap -->
+      <% end %>
+    </div>
+  </div>

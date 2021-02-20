@@ -8,6 +8,56 @@ form input {
   font-family: "游ゴシック", "YuGothic";
 }
 
+.container .row{
+  margin: 5rem;
+  padding: 5rem 1em;
+}
+
+form input[type="submit"]:hover {
+  background-color: #84d3ef;
+}
+
+.field input {
+  width: 60%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-size: 1em;
+  font-family: "游ゴシック", "YuGothic";
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.field input:focus{
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.field textarea{
+  width: 60%;
+  margin: 3px 0 1px;
+  padding: 3px;
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  border-radius: 3px;
+  color: #666;
+  font-size: 1em;
+  font-family: "游ゴシック", "YuGothic";
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+form input[type="submit"] {
+  background-color: #57C3E9;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+}
 
 form input[type="submit"]:hover {
   background-color: #84d3ef;
@@ -15,11 +65,31 @@ form input[type="submit"]:hover {
 
 .container{
   width: 80vw;
-  margin: auto;
+  margin:0 auto;
+  padding-top: 40px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   background-color: white;
   box-sizing: border-box;
   text-align: center;
+}
+
+.list-container{
+  width: 80vw;
+  margin:0 auto;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.form-container{
+  width: 40vw;
+  margin:0 auto;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 8px;
 }
 
 .container > h2 {
@@ -34,10 +104,11 @@ form input[type="submit"]:hover {
   margin-top: 5px;
 }
 
-.brand-icon{
-  margin-top: 5px;
+.return{
+  text-align: center;
+  margin: 10px 10px;
 }
 
-li{
-  color: black;
+.links{
+  padding:10px;
 }
