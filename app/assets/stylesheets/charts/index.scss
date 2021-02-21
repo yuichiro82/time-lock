@@ -1,19 +1,10 @@
 
-html {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color:#000;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .section-one {
@@ -61,17 +52,7 @@ body {
   .section-one {
     padding: 130px 0 190px;
   }
-  .separator {
-    bottom: -110px;
-    .separator__svg {
-      left: -20%;
-      position: relative;
-      transform: rotate(15deg);
-      width: 140%;
-    }
-  }
 }
-
 
 .swiper-container {
   margin-top: 10px !important;
