@@ -7,8 +7,7 @@
       <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
       <label class="tab-label" for="TAB-01">day</label>
       <div class="tab-content">
-         <h2><%= area_chart @chart.group_by_day(:created_at).sum(:act_time), width: "400px", height: "200px" %></h2>
-         
+         <%= area_chart @chart.group_by_day(:created_at).sum(:act_time), width: "400px", height: "200px" %>
       </div>
       <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
       <label class="tab-label" for="TAB-02">week</label>

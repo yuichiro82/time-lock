@@ -15,8 +15,28 @@
 	flex-wrap: wrap;
 	overflow: hidden;
   padding: 0 0 20px;
-  margin: auto;
+  margin:0 auto;
   text-align: center;
+}
+
+ .tab-content #chart-1{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.tab-content #chart-2{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.tab-content #chart-3{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.tab-content #chart-4{
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .tab-label {
