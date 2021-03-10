@@ -5,7 +5,8 @@
 
 ## App URL
 
-### **Web URL: https://time-lock.herokuapp.com/**  
+### **Web URL: https://time-lock.herokuapp.com/** 
+### **Web URL: http://www.time-lock.net./**  
 
 - ユーザID:admin29
 - パスワード:2922
